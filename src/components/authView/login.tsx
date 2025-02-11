@@ -4,12 +4,12 @@ import React, { useState } from 'react';
 
 
 export interface LoginInterface {
-    
     onSetToken: (token: string) => void,
-    
+    onSetUsername: (username: string) => void,
+    onSetPassword: (password: string) => void,
   }
 
-const Login: React.FC<LoginInterface> = ({onSetToken}) => {
+const Login: React.FC<LoginInterface> = ({onSetToken, onSetUsername, onSetPassword}) => {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
 
@@ -20,11 +20,10 @@ const Login: React.FC<LoginInterface> = ({onSetToken}) => {
 
     const handleLogIn = async (event: React.FormEvent) => {
         event.preventDefault();
-        // Handle login logic here
-        console.log('Username:', username);
-        console.log('Password:', password);
         const response = await authRequest();
         onSetToken(response);
+        onSetUsername(username);
+        onSetPassword(password);
     };
 
     return (
