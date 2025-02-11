@@ -9,7 +9,7 @@ interface MessageInputProps {
 const MessageInput: React.FC<MessageInputProps> = ({ onSendMessage }) => {
     const [message, setMessage] = useState('');
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setMessage(e.target.value);
     };
 
@@ -20,22 +20,23 @@ const MessageInput: React.FC<MessageInputProps> = ({ onSendMessage }) => {
         }
     };
 
-    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
         if (e.key === 'Enter') {
             handleSend();
         }
     };
 
     return (
-        <div className="message-input">
-            <input
-                type="text"
+        <div className="footer p-4 flex flex-row w-full">
+            <textarea 
+                className="p-2"
+                style={{flex: 4}}
                 value={message}
                 onChange={handleChange}
                 onKeyDown={handleKeyPress}
                 placeholder="Type your message..."
-            />
-            <button onClick={handleSend}>Send</button>
+            ></textarea>
+            <button onClick={handleSend} className="ml-2 w-20" >Send</button>
         </div>
     );
 };

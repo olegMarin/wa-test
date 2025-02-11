@@ -23,8 +23,8 @@ const MessagesList: React.FC = () => {
     };
 
     return (
-        <div className="flex flex-col items-end">
-            <div className="p-4 ">
+        <div className="flex flex-col justify-end w-full h-screen">
+            <div className="p-4 flex flex-col items-end w-full overflow-y-scroll">
                 {messages.map((message) => (
                     <MessageBubble key={message.id} {...message}  />
                 ))}

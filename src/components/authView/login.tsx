@@ -28,28 +28,28 @@ const Login: React.FC<LoginInterface> = ({onSetToken}) => {
     };
 
     return (
-        <div>
-            <h2>Login</h2>
-            <form onSubmit={handleLogIn}>
-                <div>
+        <div className='flex flex-col items-center'>
+            <h2 className=''>Login</h2>
+            <form className='flex flex-col items-center' onSubmit={handleLogIn}>
+                <div className="m-2">
                     <label htmlFor="username">Username:</label>
-                    <input
+                    <input className='ml-2'
                         type="text"
                         id="username"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                     />
                 </div>
-                <div>
+                <div className="m-2">
                     <label htmlFor="password">Password:</label>
-                    <input
+                    <input className='ml-2'
                         type="password"
                         id="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
-                <button type="submit">Login</button>
+                <button className='h-12 w-25' type="submit">Login</button>
             </form>
         </div>
     );

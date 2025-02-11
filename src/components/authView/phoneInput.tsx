@@ -39,9 +39,9 @@ const PhoneInput: React.FC<phoneInputInterface> = ({onSetPhone}) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='flex flex-col items-center' onSubmit={handleSubmit}>
             <div>
-                <label htmlFor="phone">Phone Number:</label>
+                <label className='mr-2' htmlFor="phone">Phone Number:</label>
                 <input
                     type="text"
                     id="phone"
@@ -51,7 +51,7 @@ const PhoneInput: React.FC<phoneInputInterface> = ({onSetPhone}) => {
                 />
             </div>
             {error && <p style={{ color: 'red' }}>{error}</p>}
-            <button type="submit">Submit</button>
+            <button className='m-2' type="submit">Submit</button>
         </form>
     );
 };
